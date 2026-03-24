@@ -1,0 +1,7 @@
+/target/
+/allure-results/
+/REVERT_COMPLETE.md
+/test-output/
+/.classpath
+/.project
+/.settings/
