@@ -7,8 +7,11 @@ import java.util.Set;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
+import com.automation.desktop.listeners.FullSeparatorListener;
 import com.automation.desktop.listeners.RetryAnalyzer;
+import com.automation.desktop.listeners.TestExecutionListener;
 import com.automation.desktop.module.CommonMethod;
 import com.automation.desktop.utility.TestCaseReporting;
 import com.automation.desktop.utility.TestExecutionLogger;
@@ -33,6 +36,9 @@ import io.qameta.allure.Step;
  * <p>All 100+ test scripts continue to compile unchanged because every
  * existing static method is preserved as a thin delegate.</p>
  */
+
+@Listeners({FullSeparatorListener.class, TestExecutionListener.class})
+
 public class ApplicationLaunch extends BaseSetup {
 
 	public static void launchWindowsApplicationDriver() {

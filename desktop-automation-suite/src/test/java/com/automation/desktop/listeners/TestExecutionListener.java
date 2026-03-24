@@ -47,8 +47,7 @@ public class TestExecutionListener implements ITestListener, ISuiteListener {
         TestExecutionLogger.info("Skipped: " + skippedCount + " (" + String.format("%.2f", skipPercent) + "%)");
         TestExecutionLogger.info("Retried: " + retriedCount + " (retry attempts, not counted in total)");
         TestExecutionLogger.info("====================================");
-
-        TestExecutionLogger.info("✅ All tests finished. Generating consolidated PDF report...");
+        TestExecutionLogger.info("======================================✅ All tests finished. Generating consolidated PDF report...=================================");
         PdfReportGenerator.generateReport(passedCount, failedCount, skippedCount);
     }
 
@@ -56,6 +55,7 @@ public class TestExecutionListener implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
         String testName = result.getMethod().getMethodName();
+        TestExecutionLogger.info("==== Test Case Started: " + testName + " ====");
         String description = result.getMethod().getDescription();
         description = description != null ? description : "No description provided";
 
